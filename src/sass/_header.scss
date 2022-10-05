@@ -1,0 +1,49 @@
+.header {
+    width: 100%;
+
+    &__body {
+        padding: 40px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    &__column {}
+}
+
+.logo {
+
+    &__body {
+        display: flex;
+        align-items: center;
+        width: 245px;
+    }
+
+    &__column {}
+
+    &__icon {
+        margin-right: 16px;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #000000;
+    }
+
+    &__subtitle {
+        width: 189px;
+        height: 17px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        /* identical to box height */
+        color: #9D9D9D;
+    }
+}
