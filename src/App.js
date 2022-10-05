@@ -36,6 +36,23 @@ function App() {
           </div>
         </div>
       </header>
+      {/* section with slider */}
+      <section className="slider">
+            <div className="container">
+                <div className="slider">
+
+                </div>
+            </div>
+        </section>
+        {/* section with main content */}
+        <section className="content">
+            <div className="container">
+                <div className="content__header">
+                    <div className="content__title">Все кроссовки</div>
+                    <input className="content__find-input" placeholder='Поиск...'></input>
+                </div>
+            </div>
+        </section>
     </div>
   );
 }
