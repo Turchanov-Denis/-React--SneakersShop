@@ -5,8 +5,10 @@ body {
     font-family: 'Inter';
 }
 
+#root {
+    padding-top: 80px;
+}
 .wrapper {
-    margin-top: 85px;
     display: flex;
     justify-content: center;
     align-items: center;

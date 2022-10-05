@@ -80,8 +80,11 @@ body {
   font-family: "Inter";
 }
 
+#root {
+  padding-top: 80px;
+}
+
 .wrapper {
-  margin-top: 85px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,6 +109,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #EAEAEA;
 }
 .logo__body {
   display: flex;
