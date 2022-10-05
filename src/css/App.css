@@ -104,7 +104,8 @@ body {
 .header__body {
   padding: 40px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
 }
 .logo__body {
   display: flex;
@@ -133,4 +134,30 @@ body {
   font-size: 14px;
   /* identical to box height */
   color: #9D9D9D;
+}
+
+.user-bar__body {
+  display: flex;
+  width: 200px;
+}
+.user-bar__column {
+  display: flex;
+}
+.user-bar__favorite-item {
+  padding: 0 30px;
+}
+.trash {
+  display: flex;
+  align-items: center;
+}
+.trash__icon {
+  padding-right: 10px;
+}
+.trash__count {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #5C5C5C;
 }
