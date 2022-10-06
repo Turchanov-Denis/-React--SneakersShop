@@ -55,7 +55,7 @@
 
     &__body {
         display: flex;
-        width: 200px;
+        min-width: 200px;
     }
 
     &__column {
