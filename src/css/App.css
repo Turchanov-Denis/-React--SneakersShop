@@ -325,6 +325,7 @@ body {
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   z-index: 10;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   padding: 32px 30px;
 }
@@ -335,6 +336,11 @@ body {
   line-height: 29px;
   /* identical to box height */
   color: #000000;
+}
+.overlay__content {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
 }
 .overlay__price-block {
   margin-top: auto;
@@ -350,4 +356,97 @@ body {
   line-height: 19px;
   text-align: center;
   color: #FFFFFF;
+}
+.overlay__checkout img {
+  position: absolute;
+  margin-top: 3px;
+  right: 80px;
+  width: 14px;
+  height: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+.overlay__checkout:hover img {
+  transform: translateX(20px);
+}
+
+.sneaker-item-trash {
+  width: 325px;
+  height: 119px;
+  background: #FFFFFF;
+  border: 1px solid #F3F3F3;
+  border-radius: 20px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.sneaker-item-trash__image {
+  width: 70px;
+  height: 70px;
+  margin-right: 21px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+}
+.sneaker-item-trash__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+.sneaker-item-trash__price {
+  width: 150px;
+  margin-right: 12px;
+}
+.sneaker-item-trash__price span {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #000000;
+}
+.sneaker-item-trash__remove-icon {
+  background-color: rgba(255, 255, 255, 0);
+  width: 32px;
+  height: 32px;
+  background-image: url("../../public/img/content/icon/remove-icon.svg");
+}
+
+.price-block {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.price-block__dash {
+  flex: 1 0 10px;
+  display: block;
+  height: 1px;
+  border-bottom: 1px dashed rgb(73, 73, 73);
+}
+.price-block__label {
+  flex: 0 0 30px;
+  margin-right: 5px;
+}
+.price-block__label_tax {
+  flex: 0 0 65px;
+}
+.price-block__counter {
+  flex: 0 0 90px;
+  margin-left: 20px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+.price-block__tax {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
 }

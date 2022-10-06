@@ -1,32 +1,50 @@
 import './css/App.css';
+import './components/Card';
 
 function App() {
   return (
 
     <div className="wrapper">
       {/* overlay */}
-      <section className="overlay">
+      <section className="overlay" style={{ "display": "none" }}>
         <div className="overlay__body">
-          <div className="overlay__title"></div>
+          <div className="overlay__title">Корзина</div>
           <div className="overlay__content">
 
             <div className="sneaker-item-trash">
-              <div className="sneaker-item-trash__image ibg"></div>
-              <div className="sneaker-item-trash__title"></div>
+              <div className="sneaker-item-trash__image" style={{ backgroundImage: "url('/img/content/sneakers/sneaker_01.png')" }}></div>
+
 
               <div className="sneaker-item-trash__price">
+                <div className="sneaker-item-trash__title">Мужские Кроссовки Nike Air Max 270</div>
                 <span>12 999 руб.</span>
               </div>
-              <button className="sneaker-item__add-icon">
+              <button className="sneaker-item-trash__remove-icon">
               </button>
             </div>
           </div>
           <div className="overlay__price-block">
-            <div className="price-block__counter"></div>
-            <div className="price-block__tax">
-              <button className="overlay__checkout">
-              </button></div>
+            <div className="price-block">
+              <div className="price-block__label">Итого: </div>
+              <div className="price-block__dash"></div>
+              <div className="price-block__counter">21 498 руб. </div>
+              {/* <div className="price-block__tax">Налог 5%:
+              1074 руб. </div> */}
+            </div>
+            <div className="overlay__price-block">
+              <div className="price-block">
+                <div className="price-block__label price-block__label_tax">Налог 5%:</div>
+                <div className="price-block__dash"></div>
+                <div className="price-block__counter">1230 руб. </div>
+                {/* <div className="price-block__tax">Налог 5%:
+              1074 руб. </div> */}
+              </div>
+
+            </div>
           </div>
+
+          <button className="overlay__checkout">Оформить заказ <img src='img/content/icon/arrow.svg'></img>
+          </button>
         </div>
       </section>
 
@@ -80,20 +98,8 @@ function App() {
             <div className="content__title">Все кроссовки</div>
             <input className="content__find-input" placeholder='Поиск...'></input>
           </div>
-          <div className="sneaker-item">
-            <button className="sneaker-item__favorite-icon  ibg"></button>
-            <div className="sneaker-item__image ibg" style={{ backgroundImage: "url('/img/content/sneakers/sneaker_01.png')" }}></div>
-            <div className="sneaker-item__title">
-              <p>Мужские Кроссовки</p>
-              <p>Nike Blazer Mid Suede</p></div>
-            <div className="sneaker-item__block">
-              <div className="sneaker-item__price">
-                <p>Price</p>
-                <span>12 999 руб.</span>
-              </div>
-              <button className="sneaker-item__add-icon ibg"></button>
-            </div>
-          </div>
+          {/* item */}
+          <Card></Card>
         </div>
       </section>
     </div>

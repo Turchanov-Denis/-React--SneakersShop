@@ -19,6 +19,7 @@
         box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
         z-index: 10;
         display: flex;
+        justify-content: center;
         flex-direction: column;
         padding: 32px 30px;
     }
@@ -34,10 +35,15 @@
         color: #000000;
     }
 
-    &__content {}
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 0;
+    }
 
     &__price-block {
         margin-top: auto;
+
     }
 
     &__checkout {
@@ -52,32 +58,128 @@
         line-height: 19px;
         text-align: center;
 
+
         color: #FFFFFF;
+
+        img {
+            position: absolute;
+            margin-top: 3px;
+            right: 80px;
+            width: 14px;
+            height: 12px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        &:hover {
+
+            img {
+
+                transform: translateX(20px);
+            }
+        }
 
     }
 }
 
 .sneaker-item-trash {
+    width: 325px;
+    height: 119px;
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 20px;
+    padding: 0 20px;
 
-    &__image {}
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 
-    &__title {}
+    &__image {
+        width: 70px;
+        height: 70px;
+        margin-right: 21px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 0 0;
 
-    &__price {}
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+    }
+
+    &__price {
+        width: 150px;
+        margin-right: 12px;
+
+        span {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            /* identical to box height */
+
+
+            color: #000000;
+        }
+    }
+
+    &__remove-icon {
+        background-color: rgba(255, 255, 255, 0);
+        width: 32px;
+        height: 32px;
+        background-image: url("../../public/img/content/icon/remove-icon.svg");
+
+    }
 }
 
-.ibg {}
 
-.sneaker-item {
-
-    &__block {}
-
-    &__add-icon {}
-}
 
 .price-block {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
 
-    &__counter {}
+    &__dash {
+        flex: 1 0 10px;
+        display: block;
+        height: 1px;
+        border-bottom: 1px dashed rgb(73, 73, 73);
+    }
 
-    &__tax {}
+    &__label {
+        flex: 0 0 30px;
+        margin-right: 5px;
+
+        &_tax {
+            flex: 0 0 65px;
+        }
+    }
+
+    &__counter {
+        flex: 0 0 90px;
+        margin-left: 20px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #000000;
+
+    }
+
+    &__tax {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #000000;
+
+    }
 }
