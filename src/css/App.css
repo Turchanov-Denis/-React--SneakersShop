@@ -188,6 +188,10 @@ body {
   width: 100%;
   padding: 45px 0;
 }
+.content__body {
+  display: flex;
+  flex-wrap: wrap;
+}
 .content__header {
   display: flex;
   justify-content: space-between;
