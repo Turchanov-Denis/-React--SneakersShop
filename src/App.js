@@ -2,6 +2,7 @@ import './css/App.css';
 
 function App() {
   return (
+    
     <div className="wrapper">
       <header className="header">
         <div className="header__body">
@@ -26,7 +27,7 @@ function App() {
                 <div className="user-bar__column"><div className="user-bar__trash trash">
                   <div className="trash">
                     <a href="" className="trash__icon"> <img src="/img/user-bar-icon/trash.svg"></img></a>
-                    <div className="trash__count">100p</div>
+                    <div className="trash__count">0p</div>
                   </div>
                 </div></div>
                 <div className="user-bar__column"><div className="user-bar__favorite-item"><img src="/img/user-bar-icon/favorite.svg"></img></div></div>
@@ -39,8 +40,9 @@ function App() {
       {/* section with slider */}
       <section className="slider">
             <div className="container">
-                <div className="slider">
-
+                <div className="slider__content">
+                  <img src="/img/banner-content/banner-image_01.png"></img>
+                  
                 </div>
             </div>
         </section>
@@ -52,7 +54,7 @@ function App() {
                     <input className="content__find-input" placeholder='Поиск...'></input>
                 </div>
                 <div className="sneaker-item">
-                    <button className="sneaker-item__favorite-icon ibg"></button>
+                    <button className="sneaker-item__favorite-icon  ibg"></button>
                     <div className="sneaker-item__image ibg" style={{backgroundImage: "url('/img/content/sneakers/sneaker_01.png')"}}></div>
                     <div className="sneaker-item__title">
                     <p>Мужские Кроссовки</p>
