@@ -8,6 +8,16 @@ body {
 #root {
     padding-top: 80px;
 }
+.page {
+    padding-top: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    z-index: -1;
+    
+}
 .wrapper {
     display: flex;
     justify-content: center;
@@ -45,3 +55,4 @@ body {
 @import '_cardSneaker.scss';
 @import '_common.scss';
 @import '_overlay.scss';
+

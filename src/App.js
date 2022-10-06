@@ -5,30 +5,30 @@ function App() {
 
     <div className="wrapper">
       {/* overlay */}
-      <div classname="overlay">
-  <div classname="overlay__body">
-    <div classname="overlay__title">
-      <div classname="overlay__content">
-       
-        <div classname="sneaker-item-trash">
-          <div classname="sneaker-item-trash__image ibg">
-            <div classname="sneaker-item-trash__title">
-              <div classname="sneaker-item__block sneaker-item__block__trash">
-                <div classname="sneaker-item-trash__price">
-                  <span>12 999 руб.</span>
-                </div>
-                <button classname="sneaker-item__add-icon">
-                </button></div>
+      <section className="overlay">
+        <div className="overlay__body">
+          <div className="overlay__title"></div>
+          <div className="overlay__content">
+
+            <div className="sneaker-item-trash">
+              <div className="sneaker-item-trash__image ibg"></div>
+              <div className="sneaker-item-trash__title"></div>
+
+              <div className="sneaker-item-trash__price">
+                <span>12 999 руб.</span>
+              </div>
+              <button className="sneaker-item__add-icon">
+              </button>
             </div>
           </div>
-          <div classname="overlay__price-block">
-            <div classname="price-block__counter">
-              <div classname="price-block__tax">
-              </div>
-              <button classname="overlay__checkout">
+          <div className="overlay__price-block">
+            <div className="price-block__counter"></div>
+            <div className="price-block__tax">
+              <button className="overlay__checkout">
               </button></div>
           </div>
-        </div></div></div></div></div>
+        </div>
+      </section>
 
       {/* header */}
       <header className="header">

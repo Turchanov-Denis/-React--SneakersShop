@@ -1,0 +1,83 @@
+.overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000007c;
+    z-index: 1;
+    overflow: hidden;
+
+    &__body {
+        position: absolute;
+        width: 385px;
+        height: 100vh;
+        right: 0;
+        top: 0px;
+        background: #FFFFFF;
+        box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        padding: 32px 30px;
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        /* identical to box height */
+
+
+        color: #000000;
+    }
+
+    &__content {}
+
+    &__price-block {
+        margin-top: auto;
+    }
+
+    &__checkout {
+        width: 325px;
+        height: 55px;
+
+        background: #9DD558;
+        border-radius: 18px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+
+        color: #FFFFFF;
+
+    }
+}
+
+.sneaker-item-trash {
+
+    &__image {}
+
+    &__title {}
+
+    &__price {}
+}
+
+.ibg {}
+
+.sneaker-item {
+
+    &__block {}
+
+    &__add-icon {}
+}
+
+.price-block {
+
+    &__counter {}
+
+    &__tax {}
+}
