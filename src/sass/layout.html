@@ -10,7 +10,31 @@
 
 <body>
     <div class="wrapper">
-        <!-- header -->
+        <!-- overlay -->
+        <div className="overlay">
+  <div className="overlay__body">
+    <div className="overlay__title" />
+    <div className="overlay__content">
+      {/* *sneaker-item-trash */}
+      <div className="sneaker-item-trash">
+        <div className="sneaker-item-trash__image ibg" />
+        <div className="sneaker-item-trash__title" />
+        <div className="sneaker-item__block sneaker-item__block__trash">
+          <div className="sneaker-item-trash__price">
+            <span>12 999 руб.</span>
+          </div>
+          <button className="sneaker-item__add-icon" />
+        </div>
+      </div>
+    </div>
+    <div className="overlay__price-block">
+      <div className="price-block__counter" />
+      <div className="price-block__tax" />
+    </div>
+    <button className="overlay__checkout" />
+  </div>
+</div>
+
 
         <!-- header -->
         <header class="header">
@@ -50,6 +74,7 @@
                 </div>
             </div>
         </header>
+        <!-- *slider -->
         <section class="slider">
             <div class="container">
                 <div class="slider">

@@ -2,8 +2,35 @@ import './css/App.css';
 
 function App() {
   return (
-    
+
     <div className="wrapper">
+      {/* overlay */}
+      <div classname="overlay">
+  <div classname="overlay__body">
+    <div classname="overlay__title">
+      <div classname="overlay__content">
+       
+        <div classname="sneaker-item-trash">
+          <div classname="sneaker-item-trash__image ibg">
+            <div classname="sneaker-item-trash__title">
+              <div classname="sneaker-item__block sneaker-item__block__trash">
+                <div classname="sneaker-item-trash__price">
+                  <span>12 999 руб.</span>
+                </div>
+                <button classname="sneaker-item__add-icon">
+                </button></div>
+            </div>
+          </div>
+          <div classname="overlay__price-block">
+            <div classname="price-block__counter">
+              <div classname="price-block__tax">
+              </div>
+              <button classname="overlay__checkout">
+              </button></div>
+          </div>
+        </div></div></div></div></div>
+
+      {/* header */}
       <header className="header">
         <div className="header__body">
           <div className="header__column">
@@ -39,36 +66,36 @@ function App() {
       </header>
       {/* section with slider */}
       <section className="slider">
-            <div className="container">
-                <div className="slider__content">
-                  <img src="/img/banner-content/banner-image_01.png"></img>
-                  
-                </div>
+        <div className="container">
+          <div className="slider__content">
+            <img src="/img/banner-content/banner-image_01.png"></img>
+
+          </div>
+        </div>
+      </section>
+      {/* section with main content */}
+      <section className="content">
+        <div className="container">
+          <div className="content__header">
+            <div className="content__title">Все кроссовки</div>
+            <input className="content__find-input" placeholder='Поиск...'></input>
+          </div>
+          <div className="sneaker-item">
+            <button className="sneaker-item__favorite-icon  ibg"></button>
+            <div className="sneaker-item__image ibg" style={{ backgroundImage: "url('/img/content/sneakers/sneaker_01.png')" }}></div>
+            <div className="sneaker-item__title">
+              <p>Мужские Кроссовки</p>
+              <p>Nike Blazer Mid Suede</p></div>
+            <div className="sneaker-item__block">
+              <div className="sneaker-item__price">
+                <p>Price</p>
+                <span>12 999 руб.</span>
+              </div>
+              <button className="sneaker-item__add-icon ibg"></button>
             </div>
-        </section>
-        {/* section with main content */}
-        <section className="content">
-            <div className="container">
-                <div className="content__header">
-                    <div className="content__title">Все кроссовки</div>
-                    <input className="content__find-input" placeholder='Поиск...'></input>
-                </div>
-                <div className="sneaker-item">
-                    <button className="sneaker-item__favorite-icon  ibg"></button>
-                    <div className="sneaker-item__image ibg" style={{backgroundImage: "url('/img/content/sneakers/sneaker_01.png')"}}></div>
-                    <div className="sneaker-item__title">
-                    <p>Мужские Кроссовки</p>
-                    <p>Nike Blazer Mid Suede</p></div>
-                    <div className="sneaker-item__block">
-                        <div className="sneaker-item__price">
-                            <p>Price</p>
-                            <span>12 999 руб.</span>
-                        </div>
-                        <button className="sneaker-item__add-icon ibg"></button>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
