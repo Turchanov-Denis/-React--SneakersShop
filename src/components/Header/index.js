@@ -1,6 +1,6 @@
-import Logo from "./Logo"
-import UserBar from "./UserBar"
-
+import Logo from "../Logo"
+import UserBar from "../UserBar"
+import "./header.css"
 export default function Header() {
     return (
         <header className="header">
