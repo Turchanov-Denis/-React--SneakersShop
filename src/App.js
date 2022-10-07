@@ -4,7 +4,23 @@ import Header from './components/Header';
 import Overlay from './components/Overlay';
 
 
-const dataSneaker = [{}]
+const dataSneaker = [{
+  title: "Мужские Кроссовки Nike Blazer Mid Suede",
+  price: 12999,
+  url: '/img/content/sneakers/sneaker_01.png'
+}, {
+  title: "Мужские Кроссовки Nike Air Max 270",
+  price: 12999,
+  url: '/img/content/sneakers/sneaker_01.png'
+}];
+
+function createContent(dataSneaker) {
+  return dataSneaker.map((item, index) => 
+    (<Card item={item} key={index}></Card>)
+  )
+
+
+}
 
 function App() {
   return (
@@ -33,7 +49,10 @@ function App() {
           </div>
           {/* item */}
           <div className='content__body'>
-            <Card></Card>
+            {/* {createContent(dataSneaker)} */}
+            {
+              createContent(dataSneaker)
+            }
           </div>
         </div>
       </section>
