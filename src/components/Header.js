@@ -7,7 +7,7 @@ export default function Header() {
         <div className="header__body">
           <div className="header__column">
             {/* Logo component */}
-            <Logo></Logo>
+            <Logo title="REACT SNEAKERS" subtitle="Магазин лучших кроссовок"></Logo>
           </div>
           <div className="header__column">
             {/* UserBar component */}

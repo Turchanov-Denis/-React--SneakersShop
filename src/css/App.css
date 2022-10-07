@@ -275,6 +275,13 @@ body {
   background-image: url("../../public/img/content/icon/favorite-icon.svg");
 }
 .sneaker-item__favorite-icon_active {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: block;
+  width: 32px;
+  height: 32px;
   background-image: url("../../public/img/content/icon/favorite-icon-active.svg");
 }
 .sneaker-item__image {
@@ -322,6 +329,9 @@ body {
   background-image: url("../../public/img/content/icon/add-icon.svg");
 }
 .sneaker-item__add-icon_active {
+  background-color: rgba(255, 255, 255, 0);
+  width: 32px;
+  height: 32px;
   background-image: url("../../public/img/content/icon/add-icon-active.svg");
 }
 
