@@ -1,4 +1,4 @@
-.sneaker-item {
+.сard {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -13,11 +13,11 @@
   box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.01);
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in;
 }
-.sneaker-item:hover {
+.сard:hover {
   box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
   transform: translateY(-5px);
 }
-.sneaker-item__favorite-icon {
+.сard__favorite-icon {
   background-color: rgba(255, 255, 255, 0);
   position: absolute;
   top: 30px;
@@ -27,7 +27,7 @@
   height: 32px;
   background-image: url("icon/favorite-icon.svg");
 }
-.sneaker-item__favorite-icon_active {
+.сard__favorite-icon_active {
   background-color: rgba(255, 255, 255, 0);
   position: absolute;
   top: 30px;
@@ -37,12 +37,12 @@
   height: 32px;
   background-image: url("icon/favorite-icon-active.svg");
 }
-.sneaker-item__image {
+.сard__image {
   width: 133px;
   height: 112px;
   align-self: center;
 }
-.sneaker-item__title {
+.сard__title {
   min-height: 35px;
   margin-top: 14px;
   text-align: left;
@@ -53,13 +53,13 @@
   overflow: hidden;
   color: #000000;
 }
-.sneaker-item__block {
+.сard__block {
   margin-top: 14px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.sneaker-item__price {
+.сard__price {
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
@@ -67,7 +67,7 @@
   text-transform: uppercase;
   color: #BDBDBD;
 }
-.sneaker-item__price span {
+.сard__price span {
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -75,13 +75,13 @@
   /* identical to box height */
   color: #000000;
 }
-.sneaker-item__add-icon {
+.сard__add-icon {
   background-color: rgba(255, 255, 255, 0);
   width: 32px;
   height: 32px;
   background-image: url("icon/add-icon.svg");
 }
-.sneaker-item__add-icon_active {
+.сard__add-icon_active {
   background-color: rgba(255, 255, 255, 0);
   width: 32px;
   height: 32px;

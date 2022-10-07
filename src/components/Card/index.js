@@ -8,6 +8,9 @@ class Card extends React.Component {
       isToggle: false
     };
     this.url = "url('" + this.props.item.url + "')";
+    this.handleClickFavorite = this.handleClickFavorite.bind(this);
+    this.handleClickAdd = this.handleClickAdd.bind(this)
+
   }
   handleClickAdd() {
     this.setState(prevState => ({
@@ -23,17 +26,17 @@ class Card extends React.Component {
   }
   render() {
     return (
-      <div className="sneaker-item">
-        <button className={(this.state.isToggleOnFavorite) ? "sneaker-item__favorite-icon_active ibg " : "sneaker-item__favorite-icon ibg "} onClick={this.handleClickFavorite.bind(this)}></button>
-        <div className="sneaker-item__image ibg" style={{ backgroundImage: this.url }}></div>
-        <div className="sneaker-item__title">
+      <div className="сard">
+        <button className={(this.state.isToggleOnFavorite) ? "сard__favorite-icon_active ibg " : "сard__favorite-icon ibg "} onClick={this.handleClickFavorite}></button>
+        <div className="сard__image ibg" style={{ backgroundImage: this.url }}></div>
+        <div className="сard__title">
           {this.props.item.title}</div>
-        <div className="sneaker-item__block">
-          <div className="sneaker-item__price">
+        <div className="сard__block">
+          <div className="сard__price">
             <p>Price</p>
             <span>{this.props.item.price} руб.</span>
           </div>
-          <button className={(this.state.isToggleOnAdd) ? "sneaker-item__add-icon_active ibg " : "sneaker-item__add-icon ibg "} onClick={this.handleClickAdd.bind(this)}></button>
+          <button className={(this.state.isToggleOnAdd) ? "сard__add-icon_active ibg " : "сard__add-icon ibg "} onClick={this.handleClickAdd}></button>
         </div>
       </div>
     )
@@ -52,17 +55,17 @@ export default Card;
 //   const url = "url('"+item.url+"')";
 //   console.log(url)
 //   return (
-//     <div className="sneaker-item">
-//       <button className="sneaker-item__favorite-icon  ibg"></button>
-//       <div className="sneaker-item__image ibg" style={{ backgroundImage: url }}></div>
-//       <div className="sneaker-item__title">
+//     <div className="сard">
+//       <button className="сard__favorite-icon  ibg"></button>
+//       <div className="сard__image ibg" style={{ backgroundImage: url }}></div>
+//       <div className="сard__title">
 //         {item.title}</div>
-//       <div className="sneaker-item__block">
-//         <div className="sneaker-item__price">
+//       <div className="сard__block">
+//         <div className="сard__price">
 //           <p>Price</p>
 //           <span>{item.price} руб.</span>
 //         </div>
-//         <button className="sneaker-item__add-icon ibg"></button>
+//         <button className="сard__add-icon ibg"></button>
 //       </div>
 //     </div>
 //   )
