@@ -1,0 +1,89 @@
+.sneaker-item {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 210px;
+  height: 260px;
+  background: #FFFFFF;
+  border: 1px solid #F3F3F3;
+  border-radius: 40px;
+  padding: 20px 28px 34px 28px;
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.01);
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in;
+}
+.sneaker-item:hover {
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
+}
+.sneaker-item__favorite-icon {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url("icon/favorite-icon.svg");
+}
+.sneaker-item__favorite-icon_active {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url("icon/favorite-icon-active.svg");
+}
+.sneaker-item__image {
+  width: 133px;
+  height: 112px;
+  align-self: center;
+}
+.sneaker-item__title {
+  min-height: 35px;
+  margin-top: 14px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  overflow: hidden;
+  color: #000000;
+}
+.sneaker-item__block {
+  margin-top: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.sneaker-item__price {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: #BDBDBD;
+}
+.sneaker-item__price span {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #000000;
+}
+.sneaker-item__add-icon {
+  background-color: rgba(255, 255, 255, 0);
+  width: 32px;
+  height: 32px;
+  background-image: url("icon/add-icon.svg");
+}
+.sneaker-item__add-icon_active {
+  background-color: rgba(255, 255, 255, 0);
+  width: 32px;
+  height: 32px;
+  background-image: url("icon/add-icon-active.svg");
+}

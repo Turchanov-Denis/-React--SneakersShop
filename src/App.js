@@ -15,7 +15,7 @@ const dataSneaker = [{
 },
 {
   title: "Мужские Кроссовки Nike Blazer Mid Suede",
-  price: 12999,
+  price: 8999,
   url: '/img/content/sneakers/sneaker_03.png'
 }];
 

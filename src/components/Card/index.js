@@ -1,23 +1,5 @@
 import React from "react";
-// function Card({item}) {
-//   const url = "url('"+item.url+"')";
-//   console.log(url)
-//   return (
-//     <div className="sneaker-item">
-//       <button className="sneaker-item__favorite-icon  ibg"></button>
-//       <div className="sneaker-item__image ibg" style={{ backgroundImage: url }}></div>
-//       <div className="sneaker-item__title">
-//         {item.title}</div>
-//       <div className="sneaker-item__block">
-//         <div className="sneaker-item__price">
-//           <p>Price</p>
-//           <span>{item.price} руб.</span>
-//         </div>
-//         <button className="sneaker-item__add-icon ibg"></button>
-//       </div>
-//     </div>
-//   )
-// }
+import './Card.css';
 
 class Card extends React.Component {
   constructor(props) {
@@ -31,14 +13,12 @@ class Card extends React.Component {
     this.setState(prevState => ({
       isToggleOnAdd: !prevState.isToggleOnAdd
     }));
-    console.log(this.state.isToggleOnAdd)
     // this.render()
   }
   handleClickFavorite() {
     this.setState(prevState => ({
       isToggleOnFavorite: !prevState.isToggleOnFavorite
     }));
-    console.log(this.state.isToggleFavorite)
     // this.render()
   }
   render() {
@@ -62,3 +42,28 @@ class Card extends React.Component {
 }
 
 export default Card;
+
+
+
+
+
+
+// function Card({item}) {
+//   const url = "url('"+item.url+"')";
+//   console.log(url)
+//   return (
+//     <div className="sneaker-item">
+//       <button className="sneaker-item__favorite-icon  ibg"></button>
+//       <div className="sneaker-item__image ibg" style={{ backgroundImage: url }}></div>
+//       <div className="sneaker-item__title">
+//         {item.title}</div>
+//       <div className="sneaker-item__block">
+//         <div className="sneaker-item__price">
+//           <p>Price</p>
+//           <span>{item.price} руб.</span>
+//         </div>
+//         <button className="sneaker-item__add-icon ibg"></button>
+//       </div>
+//     </div>
+//   )
+// }
