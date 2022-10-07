@@ -11,7 +11,7 @@ export default function Header() {
           </div>
           <div className="header__column">
             {/* UserBar component */}
-            
+            <UserBar></UserBar>
           </div>
         </div>
       </header>

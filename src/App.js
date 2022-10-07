@@ -11,12 +11,17 @@ const dataSneaker = [{
 }, {
   title: "Мужские Кроссовки Nike Air Max 270",
   price: 12999,
-  url: '/img/content/sneakers/sneaker_01.png'
+  url: '/img/content/sneakers/sneaker_02.png'
+},
+{
+  title: "Мужские Кроссовки Nike Blazer Mid Suede",
+  price: 12999,
+  url: '/img/content/sneakers/sneaker_03.png'
 }];
 
 function createContent(dataSneaker) {
   return dataSneaker.map((item, index) => 
-    (<Card item={item} key={index}></Card>)
+    (<div className='content__column'><Card item={item} key={index}></Card></div>)
   )
 
 
@@ -32,14 +37,14 @@ function App() {
       {/* header */}
       <Header></Header>
       {/* section with slider */}
-      <section className="slider">
+      {/* <section className="slider">
         <div className="container">
           <div className="slider__content">
             <img src="/img/banner-content/banner-image_01.png"></img>
 
           </div>
         </div>
-      </section>
+      </section> */}
       {/* section with main content */}
       <section className="content">
         <div className="container">
