@@ -2,6 +2,10 @@ import './css/App.css';
 import Card from './components/Card';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
+
+
+const dataSneaker = [{}]
+
 function App() {
   return (
 
@@ -10,7 +14,7 @@ function App() {
       <Overlay></Overlay>
 
       {/* header */}
-        <Header></Header>
+      <Header></Header>
       {/* section with slider */}
       <section className="slider">
         <div className="container">
@@ -29,7 +33,7 @@ function App() {
           </div>
           {/* item */}
           <div className='content__body'>
-          <Card></Card>
+            <Card></Card>
           </div>
         </div>
       </section>
