@@ -1,13 +1,13 @@
 
 
-export default function UserBar() {
+export default function UserBar({counter,onTrashClick}) {
     return (
         <div className="user-bar">
               <div className="user-bar__body">
                 <div className="user-bar__column"><div className="user-bar__trash trash">
                   <div className="trash">
-                    <a href="" className="trash__icon"> <img src="/img/user-bar-icon/trash.svg"></img></a>
-                    <div className="trash__count">0p</div>
+                    <button className="trash__icon" onClick={onTrashClick}> <img src="/img/user-bar-icon/trash.svg" ></img><div className="trash__count">{counter}p</div></button>
+                    
                   </div>
                 </div></div>
                 <div className="user-bar__column"><div className="user-bar__favorite-item"><img src="/img/user-bar-icon/favorite.svg"></img></div></div>

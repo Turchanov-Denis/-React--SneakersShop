@@ -5,7 +5,8 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggle: false
+      isToggleOnAdd: false,
+      isToggleOnFavorite: false,
     };
     this.url = "url('" + this.props.item.url + "')";
     this.handleClickFavorite = this.handleClickFavorite.bind(this);

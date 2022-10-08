@@ -1,7 +1,8 @@
 import Logo from "../Logo"
 import UserBar from "../UserBar"
 import "./header.css"
-export default function Header() {
+export default function Header(props) {
+  // props: onTrashClick for trash icon UserBar
     return (
         <header className="header">
         <div className="header__body">
@@ -11,7 +12,7 @@ export default function Header() {
           </div>
           <div className="header__column">
             {/* UserBar component */}
-            <UserBar></UserBar>
+            <UserBar onTrashClick={props.onTrashClick} counter= {0}></UserBar>
           </div>
         </div>
       </header>

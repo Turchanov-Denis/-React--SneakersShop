@@ -63,9 +63,12 @@
   align-items: center;
 }
 .trash__icon {
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
   padding-right: 10px;
 }
 .trash__count {
+  margin-left: 5px;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './css/App.css';
 import Card from './components/Card';
 import Header from './components/Header';
@@ -20,7 +21,7 @@ const dataSneaker = [{
 }];
 
 function createContent(dataSneaker) {
-  return dataSneaker.map((item, index) => 
+  return dataSneaker.map((item, index) =>
     (<div className='content__column'><Card item={item} key={index}></Card></div>)
   )
 
@@ -28,14 +29,18 @@ function createContent(dataSneaker) {
 }
 
 function App() {
+  const [trashOpened, settrashOpened] = useState(false);
+  function handleTrash() {
+    settrashOpened(!trashOpened)
+  }
   return (
 
     <div className="wrapper">
       {/* overlay */}
-      <Overlay></Overlay>
+      <Overlay onTrashClick={()=>{handleTrash()}}  overlayStyle={(trashOpened) ? { "display": "" } : { "display": "none" }}></Overlay>
 
       {/* header */}
-      <Header></Header>
+      <Header onTrashClick={()=>{handleTrash()}}></Header>
       {/* section with slider */}
       {/* <section className="slider">
         <div className="container">

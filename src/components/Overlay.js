@@ -1,10 +1,13 @@
 
 
-export default function Overlay() {
+export default function Overlay({overlayStyle,onTrashClick}) {
     return(
-        <section className="overlay" style={{ "display": "none" }}>
+        <section className="overlay" style={overlayStyle}>
         <div className="overlay__body">
+          <div className="overlay__header">
           <div className="overlay__title">Корзина</div>
+          <button className="overlay__close" onClick={onTrashClick}></button>
+          </div>
           <div className="overlay__content">
 
             <div className="sneaker-item-trash">

@@ -200,6 +200,10 @@ body {
   flex-direction: column;
   padding: 32px 30px;
 }
+.overlay__header {
+  display: flex;
+  justify-content: space-between;
+}
 .overlay__title {
   font-style: normal;
   font-weight: 700;
@@ -215,6 +219,12 @@ body {
 }
 .overlay__price-block {
   margin-top: auto;
+}
+.overlay__close {
+  background-color: rgba(255, 255, 255, 0);
+  width: 32px;
+  height: 32px;
+  background-image: url("../../public/img/content/icon/remove-icon.svg");
 }
 .overlay__checkout {
   width: 325px;
