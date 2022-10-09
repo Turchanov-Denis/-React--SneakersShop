@@ -15,6 +15,7 @@ function App() {
   const [trashSneaker, setTrashSneaker] = useState([]); // data in trash bin
   const [searchValue, setSearchValue] = useState('')
   const [trashOpened, settrashOpened] = useState(false); // menage overlay
+  const [cartItems, setCartItems] = useState([]); // data in content
 
   const addToShoppingCart = (obj) => {
     // setTrashSneaker(trashSneaker.concat([obj]))
@@ -24,10 +25,16 @@ function App() {
 
   const removeToShoppingCart = (obj) => {
     // setTrashSneaker(trashSneaker.concat([obj]))
+    console.log(obj)
+    console.log("remove")
     setTrashSneaker(prev => prev.filter((item) =>
       obj.id != item.id
-    ))
+    )) 
 
+  }
+  const onChangeInput = (event) =>{
+    console.log(event.target.value)
+    setSearchValue(event.target.value)
   }
 
   function createContent(dataSneaker) {
@@ -51,14 +58,35 @@ function App() {
 
   // get data by Api
   useEffect(() => {
-    fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
-      .then(response => response.json()).then(result => setDataSneaker(result));
-  }, [])
+    setDataSneaker([
+      {
+        "id": 1,
+        "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+        "price": 12999,
+        "url": "/img/content/sneakers/sneaker_01.png"
+      },
+      {
+        "id": 2,
+        "title": "Мужские Кроссовки Nike Air Max 270",
+        "price": 12999,
+        "url": "/img/content/sneakers/sneaker_02.png"
+      },
+      {
+        "id": 3,
+        "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+        "price": 8999,
+        "url": "/img/content/sneakers/sneaker_03.png"
+      }
+    ]
+  //   fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
+  //     .then(response => response.json()).then(result => setDataSneaker(result));
+  // }
+    )}, []
+  )
 
 
 
   return (
-
     <div className="wrapper">
       {/* overlay */}
       {/* show/hide trash bin */}
@@ -82,14 +110,19 @@ function App() {
         <div className="container">
           <div className="content__header">
             <div className="content__title">Все кроссовки</div>
-            <input className="content__find-input" placeholder='Поиск...'></input>
+            <input onChange={onChangeInput} className="content__find-input" placeholder='Поиск...'></input>
           </div>
           {/* item */}
           <div className='content__body'>
             {/* {createContent(dataSneaker)} */}
-            {
-              createContent(dataSneaker, setTrashSneaker, trashSneaker)
-            }
+
+            {dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
+            (<div className='content__column'><Card trashSneaker={trashSneaker} item={item} key={item.id} onClick={(obj) => {
+              addToShoppingCart(obj)
+            }} onRepeatClick={(obj) => {
+              removeToShoppingCart(obj)
+            }}></Card></div>)
+            )}
           </div>
         </div>
       </section>
