@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function TrashCard({ item }) {
+function TrashCard({ item,onRepeatClick }) {
     const url = "url('" + item.url + "')";
     console.log(url)
     return (
@@ -11,7 +11,7 @@ function TrashCard({ item }) {
                 <div className="sneaker-item-trash__title">{item.title}</div>
                 <span>{item.price}</span>
             </div>
-            <button className="sneaker-item-trash__remove-icon">
+            <button className="sneaker-item-trash__remove-icon" onClick={()=>{onRepeatClick(item)}}>
             </button>
         </div>
     )

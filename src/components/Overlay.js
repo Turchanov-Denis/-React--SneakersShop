@@ -1,6 +1,6 @@
 import TrashCard from "./Card/TrashCard"
 
-export default function Overlay({ trashSneaker = [], onTrashClick }) {
+export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick }) {
 
   //props: onTrashClick: is a callback - toggle overlay functional : hide or show
   function createContent(dataSneaker) {
@@ -8,7 +8,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick }) {
       console.log("this")
       console.log(dataSneaker)
       return dataSneaker.map((item) =>
-        (<div className='content__column'><TrashCard item={item} key={item.id}></TrashCard></div>)
+        (<div className='content__column'><TrashCard item={item} key={item.id} onRepeatClick = {onRepeatClick}></TrashCard></div>)
       )
     }
     catch (err) {

@@ -24,7 +24,7 @@ function App() {
 
   const removeToShoppingCart = (obj) => {
     // setTrashSneaker(trashSneaker.concat([obj]))
-    setTrashSneaker(prev => prev.filter((item) => 
+    setTrashSneaker(prev => prev.filter((item) =>
       obj.id != item.id
     ))
 
@@ -62,7 +62,9 @@ function App() {
     <div className="wrapper">
       {/* overlay */}
       {/* show/hide trash bin */}
-      {trashOpened && <Overlay trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }}></Overlay>}
+      {trashOpened && <Overlay trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }} onRepeatClick={(obj) => {
+        removeToShoppingCart(obj)
+      }}></Overlay>}
 
       {/* header */}
       <Header onTrashClick={() => { handleTrash() }}></Header>
