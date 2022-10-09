@@ -3,14 +3,13 @@ import './css/App.css';
 import Card from './components/Card';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
-
+import axios from 'axios'
 
 
 
 
 
 function App() {
-  // const dataSneaker = await fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers").then(response => { response.json() })
   const [dataSneaker, setDataSneaker] = useState([]); // data in content
   const [trashSneaker, setTrashSneaker] = useState([]); // data in trash bin
   const [searchValue, setSearchValue] = useState('')
@@ -18,13 +17,11 @@ function App() {
   const [cartItems, setCartItems] = useState([]); // data in content
 
   const addToShoppingCart = (obj) => {
-    // setTrashSneaker(trashSneaker.concat([obj]))
     setTrashSneaker(prev => [...prev, obj])
     console.log([...trashSneaker, obj])
   }
 
   const removeToShoppingCart = (obj) => {
-    // setTrashSneaker(trashSneaker.concat([obj]))
     console.log(obj)
     console.log("remove")
     setTrashSneaker(prev => prev.filter((item) =>
@@ -58,30 +55,11 @@ function App() {
 
   // get data by Api
   useEffect(() => {
-    setDataSneaker([
-      {
-        "id": 1,
-        "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-        "price": 12999,
-        "url": "/img/content/sneakers/sneaker_01.png"
-      },
-      {
-        "id": 2,
-        "title": "Мужские Кроссовки Nike Air Max 270",
-        "price": 12999,
-        "url": "/img/content/sneakers/sneaker_02.png"
-      },
-      {
-        "id": 3,
-        "title": "Мужские Кроссовки Nike Blazer Mid Suede",
-        "price": 8999,
-        "url": "/img/content/sneakers/sneaker_03.png"
-      }
-    ]
-  //   fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
-  //     .then(response => response.json()).then(result => setDataSneaker(result));
-  // }
-    )}, []
+     axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers").then(res=> setDataSneaker(res.data))
+    // fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
+    //   .then(response => response.json()).then(result => setDataSneaker(result));
+  }
+    , []
   )
 
 
