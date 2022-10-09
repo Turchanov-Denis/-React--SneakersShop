@@ -52,22 +52,3 @@ export default Card;
 
 
 
-// function Card({item}) {
-//   const url = "url('"+item.url+"')";
-//   console.log(url)
-//   return (
-//     <div className="сard">
-//       <button className="сard__favorite-icon  ibg"></button>
-//       <div className="сard__image ibg" style={{ backgroundImage: url }}></div>
-//       <div className="сard__title">
-//         {item.title}</div>
-//       <div className="сard__block">
-//         <div className="сard__price">
-//           <p>Price</p>
-//           <span>{item.price} руб.</span>
-//         </div>
-//         <button className="сard__add-icon ibg"></button>
-//       </div>
-//     </div>
-//   )
-// }

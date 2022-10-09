@@ -11,8 +11,8 @@ function createContent(dataSneaker) {
   try {
     console.log("this")
     console.log(dataSneaker)
-    return dataSneaker.map((item, index) =>
-      (<div className='content__column'><Card item={item} key={index}></Card></div>)
+    return dataSneaker.map((item) =>
+      (<div className='content__column'><Card item={item} key={item.id}></Card></div>)
     )
   }
   catch (err) {
@@ -24,21 +24,30 @@ function createContent(dataSneaker) {
 
 function App() {
   // const dataSneaker = await fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers").then(response => { response.json() })
-  const [dataSneaker, setDataSneaker] = useState([])
-  const [trashOpened, settrashOpened] = useState(false);
+  const [dataSneaker, setDataSneaker] = useState([]); // data in content
+  const [trashSneaker, setTrashSneaker] = useState([]); // data in trash bin
+  const [searchValue, setSearchValue] = useState('')
+  const [trashOpened, settrashOpened] = useState(false); // menage overlay
+
+
   function handleTrash() {
     settrashOpened(!trashOpened)
   }
+
+  // get data by Api
   useEffect(() => {
     fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
       .then(response => response.json()).then(result => setDataSneaker(result));
   }, [])
+
+
+
   return (
 
     <div className="wrapper">
       {/* overlay */}
       {/* show/hide trash bin */}
-      {trashOpened && <Overlay onTrashClick={() => { handleTrash() }}></Overlay>}
+      {trashOpened && <Overlay trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }}></Overlay>}
 
       {/* header */}
       <Header onTrashClick={() => { handleTrash() }}></Header>
