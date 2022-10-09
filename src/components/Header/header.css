@@ -57,6 +57,11 @@
 }
 .user-bar__favorite-item {
   padding: 0 30px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.user-bar__profile {
+  
+  background-color: rgba(255, 255, 255, 0);
 }
 .trash {
   display: flex;
