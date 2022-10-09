@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
-import Card from './components/Card';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
 import axios from 'axios'
-
-
+import {
+  Route,
+} from "react-router-dom";
+import Home from './pages/Home';
 
 
 
@@ -47,20 +48,20 @@ function App() {
     setSearchValue(event.target.value)
   }
 
-  function createContent(dataSneaker) {
-    try {
-      return dataSneaker.map((item) =>
-      (<div className='content__column'><Card item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onClick={(obj) => {
-        addToShoppingCart(obj)
-      }} onRepeatClick={(obj) => {
-        removeToShoppingCart(obj)
-      }}></Card></div>)
-      )
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
+  // function createContent(dataSneaker) {
+  //   try {
+  //     return dataSneaker.map((item) =>
+  //     (<div className='content__column'><Card item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onClick={(obj) => {
+  //       addToShoppingCart(obj)
+  //     }} onRepeatClick={(obj) => {
+  //       removeToShoppingCart(obj)
+  //     }}></Card></div>)
+  //     )
+  //   }
+  //   catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   function handleTrash() {
     settrashOpened(!trashOpened)
@@ -99,26 +100,16 @@ function App() {
         </div>
       </section> */}
       {/* section with main content */}
-      <section className="content">
-        <div className="container">
-          <div className="content__header">
-            <div className="content__title">Все кроссовки</div>
-            <input onChange={onChangeInput} className="content__find-input" placeholder='Поиск...'></input>
-          </div>
-          {/* item */}
-          <div className='content__body'>
-            {/* {createContent(dataSneaker)} */}
 
-            {dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
-            (<div className='content__column'><Card trashSneaker={trashSneaker} item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
-              addToShoppingCart(obj)
-            }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
-              removeToShoppingCart(obj)
-            }}></Card></div>)
-            )}
-          </div>
-        </div>
-      </section>
+
+      
+        <Route path="/" exact >
+          <Home dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart}></Home>
+        </Route>
+     
+
+
+
     </div>
   );
 }
