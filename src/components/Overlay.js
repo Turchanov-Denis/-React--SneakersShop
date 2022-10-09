@@ -27,30 +27,35 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
         </div>
         <div className="overlay__content">
           {/* item */}
-          {trashSneaker.length >0 ? createContent(trashSneaker) :<ShopCartEmpty></ShopCartEmpty> }
-        </div>
-        <div className="overlay__price-block">
-          <div className="price-block">
-            <div className="price-block__label">Итого: </div>
-            <div className="price-block__dash"></div>
-            <div className="price-block__counter">21 498 руб. </div>
-            {/* <div className="price-block__tax">Налог 5%:
+          {trashSneaker.length > 0 ? (
+            <div>
+              {createContent(trashSneaker)}
+              <div className="overlay__price-block">
+                <div className="price-block">
+                  <div className="price-block__label">Итого: </div>
+                  <div className="price-block__dash"></div>
+                  <div className="price-block__counter">21 498 руб. </div>
+                  {/* <div className="price-block__tax">Налог 5%:
               1074 руб. </div> */}
-          </div>
-          <div className="overlay__price-block">
-            <div className="price-block">
-              <div className="price-block__label price-block__label_tax">Налог 5%:</div>
-              <div className="price-block__dash"></div>
-              <div className="price-block__counter">1230 руб. </div>
-              {/* <div className="price-block__tax">Налог 5%:
+                </div>
+                <div className="overlay__price-block">
+                  <div className="price-block">
+                    <div className="price-block__label price-block__label_tax">Налог 5%:</div>
+                    <div className="price-block__dash"></div>
+                    <div className="price-block__counter">1230 руб. </div>
+                    {/* <div className="price-block__tax">Налог 5%:
               1074 руб. </div> */}
-            </div>
+                  </div>
 
-          </div>
+                </div>
+              </div>
+
+              <button className="overlay__checkout">Оформить заказ <img src='img/content/icon/arrow.svg'></img>
+              </button></div>
+          )
+            : <ShopCartEmpty onTrashClick= {onTrashClick}></ShopCartEmpty>}
         </div>
 
-        <button className="overlay__checkout">Оформить заказ <img src='img/content/icon/arrow.svg'></img>
-        </button>
       </div>
     </section>
   )

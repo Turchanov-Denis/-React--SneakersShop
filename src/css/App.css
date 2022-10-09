@@ -237,6 +237,20 @@ body {
   text-align: center;
   color: #FFFFFF;
 }
+.overlay__checkout:hover img {
+  transform: translateX(20px);
+}
+.overlay__checkout_reverse img {
+  position: absolute;
+  margin-top: 3px;
+  left: 90px;
+  width: 14px;
+  height: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+.overlay__checkout_reverse:hover img {
+  transform: translateX(-10px);
+}
 .overlay__checkout img {
   position: absolute;
   margin-top: 3px;
@@ -244,9 +258,6 @@ body {
   width: 14px;
   height: 12px;
   transition: transform 0.2s ease-in-out;
-}
-.overlay__checkout:hover img {
-  transform: translateX(20px);
 }
 
 .sneaker-item-trash {

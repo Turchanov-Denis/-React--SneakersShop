@@ -72,7 +72,31 @@
 
 
         color: #FFFFFF;
+        &:hover {
 
+            img {
+
+                transform: translateX(20px);
+            }
+        }
+        &_reverse {
+            img {
+                position: absolute;
+                margin-top: 3px;
+                left: 90px;
+                width: 14px;
+                height: 12px;
+                transition: transform 0.2s ease-in-out;
+            }
+            &:hover {
+
+                img {
+    
+                    transform: translateX(-10px);
+                }
+            }
+            
+        }
         img {
             position: absolute;
             margin-top: 3px;
@@ -82,13 +106,7 @@
             transition: transform 0.2s ease-in-out;
         }
 
-        &:hover {
-
-            img {
-
-                transform: translateX(20px);
-            }
-        }
+        
 
     }
 }

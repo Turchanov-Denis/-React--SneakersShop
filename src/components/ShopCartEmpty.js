@@ -1,6 +1,6 @@
 
 
-function shopCartEmpty() {
+function shopCartEmpty({onTrashClick}) {
     return (
         <div className="cart-empty" style={{
             display: "flex",
@@ -32,6 +32,8 @@ function shopCartEmpty() {
                 textAlign: "center"   
 
             }}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+            <button onClick={onTrashClick} className="overlay__checkout overlay__checkout_reverse"><img src='img/content/icon/arrow-reverse.svg' ></img> Вернуться назад
+        </button>
         </div>
     )
 }
