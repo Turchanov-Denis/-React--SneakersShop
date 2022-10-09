@@ -17,8 +17,17 @@ function App() {
   const [trashOpened, settrashOpened] = useState(false); // menage overlay
 
   const addToShoppingCart = (obj) => {
-    console.log(obj)
-    setTrashSneaker(trashSneaker.concat([obj]))
+    // setTrashSneaker(trashSneaker.concat([obj]))
+    setTrashSneaker(prev => [...prev, obj])
+    console.log([...trashSneaker, obj])
+  }
+
+  const removeToShoppingCart = (obj) => {
+    // setTrashSneaker(trashSneaker.concat([obj]))
+    setTrashSneaker(prev => prev.filter((item) => 
+      obj.id != item.id
+    ))
+
   }
 
   function createContent(dataSneaker) {
@@ -26,6 +35,8 @@ function App() {
       return dataSneaker.map((item) =>
       (<div className='content__column'><Card item={item} key={item.id} onClick={(obj) => {
         addToShoppingCart(obj)
+      }} onRepeatClick={(obj) => {
+        removeToShoppingCart(obj)
       }}></Card></div>)
       )
     }
