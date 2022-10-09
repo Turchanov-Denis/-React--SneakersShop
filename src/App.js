@@ -17,13 +17,13 @@ function App() {
   const [cartItems, setCartItems] = useState([]); // data in content
 
   const addToShoppingCart = (obj) => {
+    axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart",obj )
     setTrashSneaker(prev => [...prev, obj])
     console.log([...trashSneaker, obj])
   }
 
   const removeToShoppingCart = (obj) => {
-    console.log(obj)
-    console.log("remove")
+  axios.delete(`https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart/${obj.id}` )
     setTrashSneaker(prev => prev.filter((item) =>
       obj.id != item.id
     )) 
@@ -58,6 +58,7 @@ function App() {
      axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers").then(res=> setDataSneaker(res.data))
     // fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
     //   .then(response => response.json()).then(result => setDataSneaker(result));
+    axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart").then(res=> setTrashSneaker(res.data))
   }
     , []
   )
