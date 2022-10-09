@@ -4,9 +4,11 @@ import Header from './components/Header';
 import Overlay from './components/Overlay';
 import axios from 'axios'
 import {
+  Switch,
   Route,
 } from "react-router-dom";
 import Home from './pages/Home';
+import Favorite from './pages/Favorite';
 
 
 
@@ -102,11 +104,16 @@ function App() {
       {/* section with main content */}
 
 
-      
+
+      <Switch>
         <Route path="/" exact >
           <Home dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart}></Home>
         </Route>
-     
+        <Route path="/favorites" exact >
+          <Favorite dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Favorite>
+        </Route>
+      </Switch>
+
 
 
 
