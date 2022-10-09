@@ -1,14 +1,13 @@
 import TrashCard from "./Card/TrashCard"
-
+import ShopCartEmpty from "./ShopCartEmpty"
 export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick }) {
 
   //props: onTrashClick: is a callback - toggle overlay functional : hide or show
   function createContent(dataSneaker) {
     try {
-      console.log("this")
-      console.log(dataSneaker)
+
       return dataSneaker.map((item) =>
-        (<div className='content__column'><TrashCard item={item} key={item.id} onRepeatClick = {onRepeatClick}></TrashCard></div>)
+        (<div className='content__column'><TrashCard item={item} key={item.id} onRepeatClick={onRepeatClick}></TrashCard></div>)
       )
     }
     catch (err) {
@@ -20,7 +19,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
 
 
   return (
-    <section className="overlay">
+    <section className="overlay" onClick={(e) => { e.target === e.currentTarget && onTrashClick() }}>
       <div className="overlay__body">
         <div className="overlay__header">
           <div className="overlay__title">Корзина</div>
@@ -28,7 +27,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
         </div>
         <div className="overlay__content">
           {/* item */}
-            {createContent(trashSneaker)}
+          {trashSneaker.length >0 ? createContent(trashSneaker) :<ShopCartEmpty></ShopCartEmpty> }
         </div>
         <div className="overlay__price-block">
           <div className="price-block">
