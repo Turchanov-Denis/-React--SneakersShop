@@ -14,6 +14,7 @@ class Card extends React.Component {
 
   }
   handleClickAdd() {
+    this.props.onClick(this.props.item)
     this.setState(prevState => ({
       isToggleOnAdd: !prevState.isToggleOnAdd
     }));

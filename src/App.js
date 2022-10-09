@@ -7,12 +7,16 @@ import Overlay from './components/Overlay';
 
 
 
-function createContent(dataSneaker) {
+function createContent(dataSneaker, setTrashSneaker, trashSneaker) {
   try {
     console.log("this")
     console.log(dataSneaker)
     return dataSneaker.map((item) =>
-      (<div className='content__column'><Card item={item} key={item.id}></Card></div>)
+    (<div className='content__column'><Card item={item} key={item.id} onClick={(obj) => {
+      setTrashSneaker(
+        trashSneaker.push(obj)
+      )
+    }}></Card></div>)
     )
   }
   catch (err) {
@@ -71,7 +75,7 @@ function App() {
           <div className='content__body'>
             {/* {createContent(dataSneaker)} */}
             {
-              createContent(dataSneaker)
+              createContent(dataSneaker, setTrashSneaker, trashSneaker)
             }
           </div>
         </div>
