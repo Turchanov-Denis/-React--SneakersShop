@@ -7,24 +7,7 @@ import Overlay from './components/Overlay';
 
 
 
-function createContent(dataSneaker, setTrashSneaker, trashSneaker) {
-  try {
-    console.log("this")
-    console.log(dataSneaker)
-    return dataSneaker.map((item) =>
-    (<div className='content__column'><Card item={item} key={item.id} onClick={(obj) => {
-      setTrashSneaker(
-        trashSneaker.push(obj)
-      )
-    }}></Card></div>)
-    )
-  }
-  catch (err) {
-    console.log(err)
-  }
 
-
-}
 
 function App() {
   // const dataSneaker = await fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers").then(response => { response.json() })
@@ -33,6 +16,23 @@ function App() {
   const [searchValue, setSearchValue] = useState('')
   const [trashOpened, settrashOpened] = useState(false); // menage overlay
 
+  const addToShoppingCart = (obj) => {
+    console.log(obj)
+    setTrashSneaker(trashSneaker.concat([obj]))
+  }
+
+  function createContent(dataSneaker) {
+    try {
+      return dataSneaker.map((item) =>
+      (<div className='content__column'><Card item={item} key={item.id} onClick={(obj) => {
+        addToShoppingCart(obj)
+      }}></Card></div>)
+      )
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
 
   function handleTrash() {
     settrashOpened(!trashOpened)
