@@ -17,13 +17,14 @@ class Card extends React.Component {
     this.setState(prevState => ({
       isToggleOnAdd: !prevState.isToggleOnAdd
     }));
-    this.state.isToggleOnAdd ? this.props.onRepeatClick(this.props.item) : this.props.onClick(this.props.item)
+    this.state.isToggleOnAdd ? this.props.onRepeatClick(this.props.item) : this.props.onPlus(this.props.item)
     // this.render()
   }
   handleClickFavorite() {
     this.setState(prevState => ({
       isToggleOnFavorite: !prevState.isToggleOnFavorite
     }));
+    this.state.isToggleOnFavorite ? this.props.onRepeatClickFavorite(this.props.item) : this.props.onFavorite(this.props.item)
     // this.render()
   }
   render() {
