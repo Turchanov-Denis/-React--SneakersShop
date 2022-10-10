@@ -1,46 +1,44 @@
 import React from "react";
 import './Card.css';
 import AppContext from "../AppContext";
-class Card extends React.Component {
-  constructor(props) {
-    super(props);
-    this.isAdded = React.useContext(AppContext)
-    this.state = {
-      isToggleOnAdd: this.isAdded ,
-      isToggleOnFavorite: this.props.isFavorite,
-    };
-    this.url = "url('" + this.props.item.url + "')";
-    this.handleClickFavorite = this.handleClickFavorite.bind(this);
-    this.handleClickAdd = this.handleClickAdd.bind(this)
+function Card(props) {
+  const { isAdded } = React.useContext(AppContext)
+  // state = {
+  //   isToggleOnAdd: isAdded,
+  //   isToggleOnFavorite: props.isFavorite,
+  // };
+  url = "url('" + props.item.url + "')";
+  handleClickFavorite = handleClickFavorite.bind(this);
+  handleClickAdd = handleClickAdd.bind(this)
 
-  }
+
   handleClickAdd() {
-    this.setState(prevState => ({
+    setState(prevState => ({
       isToggleOnAdd: !prevState.isToggleOnAdd
     }));
-    this.state.isToggleOnAdd ? this.props.onRepeatClick(this.props.item) : this.props.onPlus(this.props.item)
-    // this.render()
+    state.isToggleOnAdd ? props.onRepeatClick(props.item) : props.onPlus(props.item)
+    // render()
   }
   handleClickFavorite() {
-    this.setState(prevState => ({
+    setState(prevState => ({
       isToggleOnFavorite: !prevState.isToggleOnFavorite
     }));
-    this.state.isToggleOnFavorite ? this.props.onRepeatClickFavorite(this.props.item) : this.props.onFavorite(this.props.item)
-    // this.render()
+    state.isToggleOnFavorite ? props.onRepeatClickFavorite(props.item) : props.onFavorite(props.item)
+    // render()
   }
   render() {
     return (
       <div className="сard">
-        <button className={(this.state.isToggleOnFavorite) ? "сard__favorite-icon_active ibg " : "сard__favorite-icon ibg "} onClick={this.handleClickFavorite}></button>
-        <div className="сard__image ibg" style={{ backgroundImage: this.url }}></div>
+        <button className={(state.isToggleOnFavorite) ? "сard__favorite-icon_active ibg " : "сard__favorite-icon ibg "} onClick={handleClickFavorite}></button>
+        <div className="сard__image ibg" style={{ backgroundImage: url }}></div>
         <div className="сard__title">
-          {this.props.item.title}</div>
+          {props.item.title}</div>
         <div className="сard__block">
           <div className="сard__price">
             <p>Price</p>
-            <span>{this.props.item.price} руб.</span>
+            <span>{props.item.price} руб.</span>
           </div>
-          <button className={(this.state.isToggleOnAdd) ? "сard__add-icon_active ibg " : "сard__add-icon ibg "} onClick={this.handleClickAdd}></button>
+          <button className={isAdded ? "сard__add-icon_active ibg " : "сard__add-icon ibg "} onClick={handleClickAdd}></button>
         </div>
       </div>
     )
