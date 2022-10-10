@@ -1,7 +1,7 @@
 import TrashCard from "./Card/TrashCard"
 import InfoLabel from "./InfoLabel"
 import React from 'react'
-
+import axios from "axios"
 export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick, setTrashSneaker }) {
   //props: onTrashClick: is a callback - toggle overlay functional : hide or show
 
@@ -18,9 +18,16 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
 
 
   const [isOrderCompleted, setIsOrderCompleted] = React.useState(false);
-  const onClickOrder = () => {
-    setIsOrderCompleted(true)
-    setTrashSneaker([])
+  const [orderId, setOrderId] = React.useState(null)
+  const onClickOrder = async () => {
+    try {
+      const { data } = await axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/orders", trashSneaker)
+      setOrderId(data.id)
+      setIsOrderCompleted(true)
+      setTrashSneaker([])
+    } catch (error) {
+      console.log(error)
+    }
 
   }
 
@@ -62,7 +69,9 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
               <button className="overlay__checkout" onClick={onClickOrder}>Оформить заказ <img src='img/content/icon/arrow.svg' ></img>
               </button></div>
           )
-            : <InfoLabel onTrashClick={onTrashClick} title={isOrderCompleted ? "Заказ оформлен!" : "Корзина пустая"} text={isOrderCompleted ? "Ваш заказ #18 скоро будет передан курьерской доставке" : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."} url={isOrderCompleted ? "./img/completeCheckOut.png" : "./img/cartEmpty.png"} styleImg={{
+            : <InfoLabel onTrashClick={onTrashClick} title={isOrderCompleted ? "Заказ оформлен!" : "Корзина пустая"} text={isOrderCompleted ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке` : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."} url={isOrderCompleted ? "./img/completeCheckOut.png" : "./img/cartEmpty.png"} styleImg={isOrderCompleted ? {
+              width: "120px",
+            } : {
               width: "120px",
               height: "120px"
             }}></InfoLabel>}
