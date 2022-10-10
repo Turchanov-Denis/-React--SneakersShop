@@ -11,12 +11,12 @@ function Home({ dataSneaker,
   removeToShoppingCart,
   favoriteSneaker, isLoading = true }) {
 
-  const isAdded = (id) => { trashSneaker.some(e => Number(e.id) === Number(id)) }
-  const isFavorite = (id) => { favoriteSneaker.some(e => Number(e.id) === Number(id)) }
+  const isAdded = (id) => { return trashSneaker.some(e => Number(e.id) === Number(id)) }
+  const isFavorite = (id) => { return favoriteSneaker.some(e => Number(e.id) === Number(id)) }
 
 
   return (
-    <AppContext.Provider value={{isAdded, isFavorite}}>
+    <AppContext.Provider value={{ isAdded, isFavorite }}>
       <section className="content">
         <div className="container">
           <div className="content__header">
