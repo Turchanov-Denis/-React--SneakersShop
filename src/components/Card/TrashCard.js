@@ -3,7 +3,6 @@ import React from "react";
 
 function TrashCard({ item,onRepeatClick }) {
     const url = "url('" + item.url + "')";
-    console.log(url)
     return (
         <div className="sneaker-item-trash">
             <div className="sneaker-item-trash__image" style={{ backgroundImage: url }}></div>

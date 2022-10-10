@@ -20,9 +20,13 @@ function App() {
   const [favoriteSneaker, setFavoriteSneaker] = useState([]); // data in favorites
 
   const addToShoppingCart = (obj) => {
-    axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart", obj)
-    setTrashSneaker(prev => [...prev, obj])
-    console.log([...trashSneaker, obj])
+    try {
+      axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart", obj)
+      setTrashSneaker(prev => [...prev, obj])
+      console.log([...trashSneaker, obj])
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const removeToShoppingCart = (obj) => {
@@ -33,9 +37,13 @@ function App() {
 
   }
   const addToFavorite = (obj) => {
-    axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites", obj)
+    try {
+      axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites", obj)
     setFavoriteSneaker(prev => [...prev, obj])
     console.log([...favoriteSneaker, obj])
+    } catch (error) {
+      console.log(error)
+    }
   }
   const removeToFavorite = (obj) => {
     axios.delete(`https://6341ed4620f1f9d7997bd569.mockapi.io/favorites/${obj.id}`)
@@ -46,7 +54,6 @@ function App() {
   }
   // for search bar
   const onChangeInput = (event) => {
-    console.log(event.target.value)
     setSearchValue(event.target.value)
   }
 
