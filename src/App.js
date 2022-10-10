@@ -39,8 +39,8 @@ function App() {
   const addToFavorite = (obj) => {
     try {
       axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites", obj)
-    setFavoriteSneaker(prev => [...prev, obj])
-    console.log([...favoriteSneaker, obj])
+      setFavoriteSneaker(prev => [...prev, obj])
+      console.log([...favoriteSneaker, obj])
     } catch (error) {
       console.log(error)
     }
@@ -78,16 +78,23 @@ function App() {
 
   // get data by Api
   useEffect(() => {
-    axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers").then(res => setDataSneaker(res.data))
-    // fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
-    //   .then(response => response.json()).then(result => setDataSneaker(result));
-    axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart").then(res => setTrashSneaker(res.data))
-    axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites").then(res => setFavoriteSneaker(res.data))
+    async function fetchData() {
+      const trashResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart")
+      const favoriteResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites")
+      const sneakerResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
+
+      setDataSneaker(sneakerResponse.data)
+      setTrashSneaker(trashResponse.data)
+      setFavoriteSneaker(favoriteResponse.data)
+    }
+
+    fetchData()
   }
     , []
   )
 
-
+  // fetch("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
+  //   .then(response => response.json()).then(result => setDataSneaker(result));
 
   return (
     <div className="wrapper">

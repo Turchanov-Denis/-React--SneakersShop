@@ -22,11 +22,11 @@ function Home({dataSneaker,
             {/* {createContent(dataSneaker)} */}
 
             {dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
-            (<div className='content__column'><Card trashSneaker={trashSneaker} item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
+            (<div className='content__column'><Card  item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
               addToShoppingCart(obj) 
             }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
               removeToShoppingCart(obj)
-            }} favoriteSneaker={favoriteSneaker}></Card></div>)
+            }} isAdded = {trashSneaker.some(e => Number(e.id) === Number(item.id) )} isFavorite={favoriteSneaker.some(e => Number(e.id) === Number(item.id) )}></Card></div>)
             )}
           </div>
         </div>
