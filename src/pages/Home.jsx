@@ -22,7 +22,7 @@ function Home({dataSneaker,
             {/* {createContent(dataSneaker)} */}
             
 
-            {isLoading ? (<div><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder></div>): (dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
+            {isLoading ? (<><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder></>): (dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
             (<div className='content__column'><Card  key={item.id} item={item}  onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
               addToShoppingCart(obj) 
             }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
