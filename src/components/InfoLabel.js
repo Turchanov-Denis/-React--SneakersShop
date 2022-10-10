@@ -1,19 +1,20 @@
 
 
-function shopCartEmpty({onTrashClick,title,url,text}) {
+function shopCartEmpty({onTrashClick,title,url,text,styleImg}) {
     return (
         <div className="cart-empty" style={{
             display: "flex",
+            margin: "0 auto",
             flexDirection: "column",
             alignItems: "center" ,
             justifyContent: "center",
             height: "100%",
+            minHeight: "300px",
+            position: "relative"
+
             
         }}>
-            <img src={url} style={{
-                width: "120px",
-                height: "120px"
-            }}></img>
+            <img src={url} style = {styleImg}></img>
             <h2 style={{
                 fontStyle: "normal",
                 fontWeight: "600",
@@ -32,7 +33,7 @@ function shopCartEmpty({onTrashClick,title,url,text}) {
                 textAlign: "center"   
 
             }}>{text}</p>
-            <button onClick={onTrashClick} className="overlay__checkout overlay__checkout_reverse"><img src='img/content/icon/arrow-reverse.svg' ></img> Вернуться назад
+            <button onClick={onTrashClick} className="overlay__checkout overlay__checkout_reverse"><img src='././img/content/icon/arrow-reverse.svg' ></img> Вернуться назад
         </button>
         </div>
     )

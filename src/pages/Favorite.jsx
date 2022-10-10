@@ -1,6 +1,6 @@
 import Card from "../components/Card"
 import AppContext from "../components/AppContext"
-
+import InfoLabel from "../components/InfoLabel"
 function Favorite({ dataSneaker,
     onChangeInput,
     searchValue,
@@ -23,14 +23,16 @@ function Favorite({ dataSneaker,
                 {/* item */}
                 <div className='content__body'>
                     {/* {createContent(dataSneaker)} */}
-
-                    {favoriteSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
+                    {favoriteSneaker.length > 0 ? (favoriteSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
                     (<div className='content__column'><Card  item={item} key={item.id}  onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
                         addToShoppingCart(obj)
                     }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
                         removeToShoppingCart(obj)
-                    }}></Card></div>)
-                    )}
+                    }}></Card></div>) 
+                    )) : <InfoLabel styleImg={{
+                width: "45px",
+                height: "45px"
+            }}  title="Закладок нет :(" text="Вы ничего не добавляли в закладки" url="./img/noBookmark.png"></InfoLabel>}
                 </div>
             </div>
         </section>

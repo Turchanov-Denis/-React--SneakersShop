@@ -241,9 +241,8 @@ body {
   transform: translateX(20px);
 }
 .overlay__checkout_reverse img {
-  position: absolute;
-  margin-top: 3px;
-  left: 90px;
+  position: relative;
+  margin-right: 170px;
   width: 14px;
   height: 12px;
   transition: transform 0.2s ease-in-out;

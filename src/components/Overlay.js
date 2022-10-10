@@ -53,7 +53,10 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
               <button className="overlay__checkout">Оформить заказ <img src='img/content/icon/arrow.svg'></img>
               </button></div>
           )
-            : <InfoLabel onTrashClick= {onTrashClick} title="Корзина пустая" text="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ." url="./img/cartEmpty.png"></InfoLabel>}
+            : <InfoLabel onTrashClick= {onTrashClick} title="Корзина пустая" text="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ." url="./img/cartEmpty.png" styleImg={{
+                width: "120px",
+                height: "120px"
+            }}></InfoLabel>}
         </div>
 
       </div>
