@@ -1,6 +1,6 @@
 import Card from "../components/Card"
 import CartLoder from "../components/CartLoader"
-
+import AppContext from "../components/AppContext"
 function Home({dataSneaker,
     onChangeInput,
     searchValue,
@@ -10,8 +10,13 @@ function Home({dataSneaker,
     removeToFavorite,
     removeToShoppingCart,
     favoriteSneaker,isLoading = true}){
+
+      const isAdded = (id)=> {trashSneaker.some(e => Number(e.id) === Number(id) )}
+
+
     return (
-        <section className="content">
+      <AppContext.Provider value={isAdded}>
+          <section className="content">
         <div className="container">
           <div className="content__header">
             <div className="content__title">All Sneakers</div>
@@ -27,11 +32,12 @@ function Home({dataSneaker,
               addToShoppingCart(obj) 
             }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
               removeToShoppingCart(obj)
-            }} isAdded = {trashSneaker.some(e => Number(e.id) === Number(item.id) )} isFavorite={favoriteSneaker.some(e => Number(e.id) === Number(item.id) )}></Card></div>)
+            }}  isFavorite={favoriteSneaker.some(e => Number(e.id) === Number(item.id) )}></Card></div>)
             ))}
           </div>
         </div>
       </section>
+      </AppContext.Provider>
     )
 }
 

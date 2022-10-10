@@ -1,11 +1,12 @@
 import React from "react";
 import './Card.css';
-
+import AppContext from "../AppContext";
 class Card extends React.Component {
   constructor(props) {
     super(props);
+    this.isAdded = React.useContext(AppContext)
     this.state = {
-      isToggleOnAdd: this.props.isAdded ,
+      isToggleOnAdd: this.isAdded ,
       isToggleOnFavorite: this.props.isFavorite,
     };
     this.url = "url('" + this.props.item.url + "')";

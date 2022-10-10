@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import Favorite from './pages/Favorite';
-
+import AppContext from './components/AppContext';
 
 
 function App() {
