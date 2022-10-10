@@ -5,7 +5,7 @@ import AppContext from "../AppContext";
 function Card({ item, onRepeatClick, onRepeatClickFavorite, onFavorite, onPlus }) {
   const { isAdded, isFavorite } = React.useContext(AppContext)
   const url = "url('" + item.url + "')";
-  console.log(url)
+  
   return (
     <div className="card">
       <button className={isFavorite(item.id) ? "card__favorite-icon_active ibg " : "card__favorite-icon ibg "} onClick={() => { isFavorite(item.id) ? onRepeatClickFavorite(item) : onFavorite(item) }}></button>

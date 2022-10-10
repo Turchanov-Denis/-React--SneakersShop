@@ -22,12 +22,20 @@ function App() {
 
   const addToShoppingCart = (obj) => {
     try {
-      axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart", obj)
-      setTrashSneaker(prev => [...prev, obj])
-      console.log([...trashSneaker, obj])
+      if (trashSneaker.find(item => Number(item.id) === Number(obj.id))) {
+        axios.delete(`https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart/${obj.id}`)
+        setTrashSneaker(prev => prev.filter(item => Number(item.id) !== Number(obj.id)))
+      }
+      else {
+        axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart", obj)
+        setTrashSneaker(prev => [...prev, obj])
+        console.log([...trashSneaker, obj])
+      }
+
     } catch (error) {
       console.log(error)
     }
+    console.log("+")
   }
 
   const removeToShoppingCart = (obj) => {
@@ -35,7 +43,7 @@ function App() {
     setTrashSneaker(prev => prev.filter((item) =>
       obj.id != item.id
     ))
-
+    console.log("-")
   }
   const addToFavorite = (obj) => {
     try {
@@ -57,21 +65,6 @@ function App() {
   const onChangeInput = (event) => {
     setSearchValue(event.target.value)
   }
-
-  // function createContent(dataSneaker) {
-  //   try {
-  //     return dataSneaker.map((item) =>
-  //     (<div className='content__column'><Card item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onClick={(obj) => {
-  //       addToShoppingCart(obj)
-  //     }} onRepeatClick={(obj) => {
-  //       removeToShoppingCart(obj)
-  //     }}></Card></div>)
-  //     )
-  //   }
-  //   catch (err) {
-  //     console.log(err)
-  //   }
-  // }
 
   function handleTrash() {
     settrashOpened(!trashOpened)
