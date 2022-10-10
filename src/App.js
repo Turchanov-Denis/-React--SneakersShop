@@ -18,6 +18,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('')
   const [trashOpened, settrashOpened] = useState(false); // menage overlay
   const [favoriteSneaker, setFavoriteSneaker] = useState([]); // data in favorites
+  const [isLoading, setIsLoading] = useState(true); // menage overlay
 
   const addToShoppingCart = (obj) => {
     try {
@@ -86,6 +87,7 @@ function App() {
       setDataSneaker(sneakerResponse.data)
       setTrashSneaker(trashResponse.data)
       setFavoriteSneaker(favoriteResponse.data)
+      setIsLoading(false)
     }
 
     fetchData()
@@ -121,7 +123,7 @@ function App() {
 
       <Switch>
         <Route path="/" exact >
-          <Home dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Home>
+          <Home isLoading={isLoading} dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Home>
         </Route>
         <Route path="/favorites" exact >
           <Favorite dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Favorite>

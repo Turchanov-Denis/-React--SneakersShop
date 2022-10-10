@@ -1,5 +1,5 @@
 import Card from "../components/Card"
-
+import CartLoder from "../components/CartLoader"
 
 function Home({dataSneaker,
     onChangeInput,
@@ -9,7 +9,7 @@ function Home({dataSneaker,
     addToShoppingCart,
     removeToFavorite,
     removeToShoppingCart,
-    favoriteSneaker}){
+    favoriteSneaker,isLoading = true}){
     return (
         <section className="content">
         <div className="container">
@@ -20,14 +20,15 @@ function Home({dataSneaker,
           {/* item */}
           <div className='content__body'>
             {/* {createContent(dataSneaker)} */}
+            
 
-            {dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
-            (<div className='content__column'><Card  item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
+            {isLoading ? (<div><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder></div>): (dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
+            (<div className='content__column'><Card  key={item.id} item={item}  onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
               addToShoppingCart(obj) 
             }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
               removeToShoppingCart(obj)
             }} isAdded = {trashSneaker.some(e => Number(e.id) === Number(item.id) )} isFavorite={favoriteSneaker.some(e => Number(e.id) === Number(item.id) )}></Card></div>)
-            )}
+            ))}
           </div>
         </div>
       </section>
