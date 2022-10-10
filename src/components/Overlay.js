@@ -34,7 +34,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
                 <div className="price-block">
                   <div className="price-block__label">Итого: </div>
                   <div className="price-block__dash"></div>
-                  <div className="price-block__counter">21 498 руб. </div>
+                  <div className="price-block__counter">{trashSneaker.reduce((counter,item) => counter += item.price,0)} руб</div>
                   {/* <div className="price-block__tax">Налог 5%:
               1074 руб. </div> */}
                 </div>
@@ -42,7 +42,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
                   <div className="price-block">
                     <div className="price-block__label price-block__label_tax">Налог 5%:</div>
                     <div className="price-block__dash"></div>
-                    <div className="price-block__counter">1230 руб. </div>
+                    <div className="price-block__counter">{(trashSneaker.reduce((counter,item) => counter += item.price,0)*0.05).toFixed(2)} руб </div>
                     {/* <div className="price-block__tax">Налог 5%:
               1074 руб. </div> */}
                   </div>

@@ -91,7 +91,7 @@ function App() {
       }}></Overlay>}
 
       {/* header */}
-      <Header onTrashClick={() => { handleTrash() }}></Header>
+      <Header trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }}></Header>
       {/* section with slider */}
       {/* <section className="slider">
         <div className="container">
@@ -107,7 +107,7 @@ function App() {
 
       <Switch>
         <Route path="/" exact >
-          <Home dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart}></Home>
+          <Home dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Home>
         </Route>
         <Route path="/favorites" exact >
           <Favorite dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Favorite>

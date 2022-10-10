@@ -5,8 +5,8 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggleOnAdd: false,
-      isToggleOnFavorite: props.Favorited,
+      isToggleOnAdd: this.props.trashSneaker.filter(e => e.id == this.props.item.id ).length > 0 ,
+      isToggleOnFavorite: this.props.favoriteSneaker.filter(e => e.id == this.props.item.id ).length > 0,
     };
     this.url = "url('" + this.props.item.url + "')";
     this.handleClickFavorite = this.handleClickFavorite.bind(this);

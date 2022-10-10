@@ -8,7 +8,8 @@ function Home({dataSneaker,
     addToFavorite,
     addToShoppingCart,
     removeToFavorite,
-    removeToShoppingCart}){
+    removeToShoppingCart,
+    favoriteSneaker}){
     return (
         <section className="content">
         <div className="container">
@@ -22,10 +23,10 @@ function Home({dataSneaker,
 
             {dataSneaker.filter(item => item.title.toUpperCase().includes(searchValue.toUpperCase())).map((item) =>
             (<div className='content__column'><Card trashSneaker={trashSneaker} item={item} key={item.id} onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
-              addToShoppingCart(obj)
+              addToShoppingCart(obj) 
             }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {
               removeToShoppingCart(obj)
-            }}></Card></div>)
+            }} favoriteSneaker={favoriteSneaker}></Card></div>)
             )}
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function Header(props) {
         </div>
         <div className="header__column">
           {/* UserBar component */}
-          <UserBar onTrashClick={props.onTrashClick} counter={0}></UserBar>
+          <UserBar onTrashClick={props.onTrashClick} counter={props.trashSneaker.reduce((counter,item) => counter += item.price,0)}></UserBar>
         </div>
       </div>
     </header>
