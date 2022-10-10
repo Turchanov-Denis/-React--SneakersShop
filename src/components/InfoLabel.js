@@ -1,6 +1,6 @@
 
 
-function shopCartEmpty({onTrashClick}) {
+function shopCartEmpty({onTrashClick,title,url,text}) {
     return (
         <div className="cart-empty" style={{
             display: "flex",
@@ -10,7 +10,7 @@ function shopCartEmpty({onTrashClick}) {
             height: "100%",
             
         }}>
-            <img src="./img/cartEmpty.png" style={{
+            <img src={url} style={{
                 width: "120px",
                 height: "120px"
             }}></img>
@@ -21,7 +21,7 @@ function shopCartEmpty({onTrashClick}) {
                 lineHeight: "27px",
                 color: "#000000",
 
-            }}>Корзина пустая</h2>
+            }}>{title}</h2>
             <p style={{
                 fontStyle: "normal",
                 fontWeight: "400",
@@ -31,7 +31,7 @@ function shopCartEmpty({onTrashClick}) {
                 opacity: "0.4",
                 textAlign: "center"   
 
-            }}>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+            }}>{text}</p>
             <button onClick={onTrashClick} className="overlay__checkout overlay__checkout_reverse"><img src='img/content/icon/arrow-reverse.svg' ></img> Вернуться назад
         </button>
         </div>

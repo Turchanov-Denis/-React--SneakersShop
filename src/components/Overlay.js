@@ -1,5 +1,5 @@
 import TrashCard from "./Card/TrashCard"
-import ShopCartEmpty from "./ShopCartEmpty"
+import InfoLabel from "./InfoLabel"
 export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick }) {
 
   //props: onTrashClick: is a callback - toggle overlay functional : hide or show
@@ -53,7 +53,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
               <button className="overlay__checkout">Оформить заказ <img src='img/content/icon/arrow.svg'></img>
               </button></div>
           )
-            : <ShopCartEmpty onTrashClick= {onTrashClick}></ShopCartEmpty>}
+            : <InfoLabel onTrashClick= {onTrashClick} title="Корзина пустая" text="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ." url="./img/cartEmpty.png"></InfoLabel>}
         </div>
 
       </div>
