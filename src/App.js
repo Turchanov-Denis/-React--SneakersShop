@@ -97,7 +97,7 @@ function App() {
       {/* show/hide trash bin */}
       {trashOpened && <Overlay trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }} onRepeatClick={(obj) => {
         removeToShoppingCart(obj)
-      }}></Overlay>}
+      }} setTrashSneaker={setTrashSneaker}></Overlay>}
 
       {/* header */}
       <Header trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }}></Header>
