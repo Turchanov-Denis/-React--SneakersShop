@@ -1,19 +1,24 @@
 import Card from "../components/Card"
-import CartLoder from "../components/CartLoader"
 import AppContext from "../components/AppContext"
+import React from 'react'
+import axios from "axios"
 
-export default function Orders({ dataSneaker,
-    onChangeInput,
-    searchValue,
-    trashSneaker,
+
+export default function Orders({
     addToFavorite,
     addToShoppingCart,
     removeToFavorite,
-    removeToShoppingCart,
-    favoriteSneaker, isLoading = true, orderSneaker }) {
-        console.log(orderSneaker)
+    removeToShoppingCart }) {
+    const [orderSneaker, setOrderSneaker] = React.useState([])
+    React.useEffect(() => {
+        (async () => {
+            const ordersResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/orders");
+            setOrderSneaker(ordersResponse.data)
+        })()
+    })
+
     return (
-        <AppContext.Provider value={{ isAdded: ()=> false, isFavorite: ()=> false }}>
+        <AppContext.Provider value={{ isAdded: () => false, isFavorite: () => false }}>
             <section className="content">
                 <div className="container">
                     <div className="content__header">
@@ -23,7 +28,7 @@ export default function Orders({ dataSneaker,
                     {/* item */}
                     <div className='content__body'>
                         {/* {createContent(dataSneaker)} */}
-                        {isLoading ? (<><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder><CartLoder></CartLoder></>) : (orderSneaker.map((item) =>
+                        {(orderSneaker.map((item) =>
                         (<div className='content__column'><Card key={item[0].id} item={item[0]} onFavorite={(obj) => { addToFavorite(obj) }} onPlus={(obj) => {
                             addToShoppingCart(obj)
                         }} onRepeatClickFavorite={(obj) => { removeToFavorite(obj) }} onRepeatClick={(obj) => {

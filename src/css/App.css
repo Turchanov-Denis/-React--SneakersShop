@@ -185,6 +185,13 @@ body {
   background: rgba(0, 0, 0, 0.4862745098);
   z-index: 1;
   overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.overlay_active {
+  visibility: visible;
+  opacity: 1;
 }
 .overlay__body {
   position: absolute;

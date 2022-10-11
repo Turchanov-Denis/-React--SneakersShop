@@ -2,7 +2,7 @@ import TrashCard from "./Card/TrashCard"
 import InfoLabel from "./InfoLabel"
 import React from 'react'
 import axios from "axios"
-export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick, setTrashSneaker }) {
+export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick, setTrashSneaker, trashOpened }) {
   //props: onTrashClick: is a callback - toggle overlay functional : hide or show
 
   function createContent(dataSneaker) {
@@ -22,7 +22,6 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
   const onClickOrder = async () => {
     try {
       const { data } = await axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/orders", trashSneaker)
-      console.log(data)
       setOrderId(data.id)
       setIsOrderCompleted(true)
       setTrashSneaker([])
@@ -33,7 +32,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
   }
 
   return (
-    <section className="overlay" onClick={(e) => { e.target === e.currentTarget && onTrashClick() }}>
+    <section className= {`${trashOpened ? "overlay overlay_active" : "overlay"}`} onClick={(e) => { e.target === e.currentTarget && onTrashClick() }}>
       <div className="overlay__body">
         <div className="overlay__header">
           <div className="overlay__title">Корзина</div>

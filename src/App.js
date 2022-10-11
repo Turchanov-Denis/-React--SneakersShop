@@ -20,7 +20,7 @@ function App() {
   const [trashOpened, settrashOpened] = useState(false); // menage overlay
   const [favoriteSneaker, setFavoriteSneaker] = useState([]); // data in favorites
   const [isLoading, setIsLoading] = useState(true); // menage overlay
-  const [orderSneaker, setOrderSneaker] = useState([])
+
   const addToShoppingCart = (obj) => {
     try {
       if (trashSneaker.find(item => Number(item.id) === Number(obj.id))) {
@@ -76,12 +76,10 @@ function App() {
       const trashResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart");
       const favoriteResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites");
       const sneakerResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers");
-      const ordersResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/orders");
       setDataSneaker(sneakerResponse.data)
       setTrashSneaker(trashResponse.data)
       setFavoriteSneaker(favoriteResponse.data)
       setIsLoading(false)
-      setOrderSneaker(ordersResponse.data)
     }
 
     fetchData()
@@ -95,7 +93,7 @@ function App() {
   return (
     <div className="wrapper">
       {/* overlay */}
-      {trashOpened && <Overlay trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }} onRepeatClick={(obj) => {
+      { <Overlay trashOpened={trashOpened} trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }} onRepeatClick={(obj) => {
         removeToShoppingCart(obj)
       }} setTrashSneaker={setTrashSneaker}></Overlay>}
 
@@ -119,7 +117,7 @@ function App() {
           <Favorite dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Favorite>
         </Route>
         <Route path="/orders">
-          <Orders orderSneaker={orderSneaker} isLoading={isLoading} dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Orders>
+          <Orders isLoading={isLoading} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart}></Orders>
         </Route>
       </Switch>
 
