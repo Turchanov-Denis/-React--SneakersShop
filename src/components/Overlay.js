@@ -22,6 +22,7 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
   const onClickOrder = async () => {
     try {
       const { data } = await axios.post("https://6341ed4620f1f9d7997bd569.mockapi.io/orders", trashSneaker)
+      console.log(data)
       setOrderId(data.id)
       setIsOrderCompleted(true)
       setTrashSneaker([])
@@ -30,9 +31,6 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
     }
 
   }
-
-
-
 
   return (
     <section className="overlay" onClick={(e) => { e.target === e.currentTarget && onTrashClick() }}>
@@ -51,18 +49,13 @@ export default function Overlay({ trashSneaker = [], onTrashClick, onRepeatClick
                   <div className="price-block__label">Итого: </div>
                   <div className="price-block__dash"></div>
                   <div className="price-block__counter">{trashSneaker.reduce((counter, item) => counter += item.price, 0)} руб</div>
-                  {/* <div className="price-block__tax">Налог 5%:
-              1074 руб. </div> */}
                 </div>
                 <div className="overlay__price-block">
                   <div className="price-block">
                     <div className="price-block__label price-block__label_tax">Налог 5%:</div>
                     <div className="price-block__dash"></div>
                     <div className="price-block__counter">{(trashSneaker.reduce((counter, item) => counter += item.price, 0) * 0.05).toFixed(2)} руб </div>
-                    {/* <div className="price-block__tax">Налог 5%:
-              1074 руб. </div> */}
                   </div>
-
                 </div>
               </div>
 

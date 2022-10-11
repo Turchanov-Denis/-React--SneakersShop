@@ -1,6 +1,4 @@
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function UserBar({ counter, onTrashClick }) {
   // props: counter - trash bin count
@@ -15,7 +13,7 @@ export default function UserBar({ counter, onTrashClick }) {
           </div>
         </div></div>
         <div className="user-bar__column"><button className="user-bar__favorite-item"><Link to="/favorites"><img src="/img/user-bar-icon/favorite.svg" alt="favorites"></img></Link></button></div>
-        <div className="user-bar__column"><button className="user-bar__profile"><img src="/img/user-bar-icon/user-profile.svg" alt="profile"></img></button></div>
+        <div className="user-bar__column"><button className="user-bar__profile"><Link to="/orders"><img src="/img/user-bar-icon/user-profile.svg" alt="profile"></img></Link></button></div>
       </div>
     </div>
   )

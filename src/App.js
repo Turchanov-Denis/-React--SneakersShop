@@ -10,6 +10,7 @@ import {
 import Home from './pages/Home';
 import Favorite from './pages/Favorite';
 import AppContext from './components/AppContext';
+import Orders from './pages/Orders';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
   const [trashOpened, settrashOpened] = useState(false); // menage overlay
   const [favoriteSneaker, setFavoriteSneaker] = useState([]); // data in favorites
   const [isLoading, setIsLoading] = useState(true); // menage overlay
-
+  const [orderSneaker, setOrderSneaker] = useState([])
   const addToShoppingCart = (obj) => {
     try {
       if (trashSneaker.find(item => Number(item.id) === Number(obj.id))) {
@@ -37,7 +38,6 @@ function App() {
     }
     console.log("+")
   }
-
   const removeToShoppingCart = (obj) => {
     axios.delete(`https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart/${obj.id}`)
     setTrashSneaker(prev => prev.filter((item) =>
@@ -73,14 +73,15 @@ function App() {
   // get data by Api
   useEffect(() => {
     async function fetchData() {
-      const trashResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart")
-      const favoriteResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites")
-      const sneakerResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers")
-
+      const trashResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/shoppingCart");
+      const favoriteResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/favorites");
+      const sneakerResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/Sneakers");
+      const ordersResponse = await axios.get("https://6341ed4620f1f9d7997bd569.mockapi.io/orders");
       setDataSneaker(sneakerResponse.data)
       setTrashSneaker(trashResponse.data)
       setFavoriteSneaker(favoriteResponse.data)
       setIsLoading(false)
+      setOrderSneaker(ordersResponse.data)
     }
 
     fetchData()
@@ -94,7 +95,6 @@ function App() {
   return (
     <div className="wrapper">
       {/* overlay */}
-      {/* show/hide trash bin */}
       {trashOpened && <Overlay trashSneaker={trashSneaker} onTrashClick={() => { handleTrash() }} onRepeatClick={(obj) => {
         removeToShoppingCart(obj)
       }} setTrashSneaker={setTrashSneaker}></Overlay>}
@@ -111,15 +111,15 @@ function App() {
         </div>
       </section> */}
       {/* section with main content */}
-
-
-
       <Switch>
         <Route path="/" exact >
           <Home isLoading={isLoading} dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Home>
         </Route>
         <Route path="/favorites" exact >
           <Favorite dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Favorite>
+        </Route>
+        <Route path="/orders">
+          <Orders orderSneaker={orderSneaker} isLoading={isLoading} dataSneaker={dataSneaker} onChangeInput={onChangeInput} searchValue={searchValue} trashSneaker={trashSneaker} addToFavorite={addToFavorite} addToShoppingCart={addToShoppingCart} removeToFavorite={removeToFavorite} removeToShoppingCart={removeToShoppingCart} favoriteSneaker={favoriteSneaker}></Orders>
         </Route>
       </Switch>
 
